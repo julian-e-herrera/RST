@@ -1,8 +1,8 @@
 
-//modelo de conexion unica con lib isomorphic-fetch;
-//import 'isomorphic-fetch';
-import './node_modules/isomorphic-fetch';
-//require('../node_modules/isomorphic-fetch');
+// //modelo de conexion unica con lib isomorphic-fetch;
+// //import 'isomorphic-fetch';
+// import './node_modules/isomorphic-fetch';
+require('../node_modules/isomorphic-fetch');
 
 
 const crudder = dominio => recurso => {
@@ -30,6 +30,7 @@ function crea(res) {
             'url': element.url
         }
     });
+   
 }
 let list = Todos.get().then(x => crea(x));
 console.log(list[0]);

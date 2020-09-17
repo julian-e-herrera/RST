@@ -1,9 +1,6 @@
-//import {fotos} from './conection.js';
-//import * as con from './conection.js';
-//import './node_modules/isomorphic-fetch';
-//require('../node_modules/isomorphic-fetch');
 
 
+document.addEventListener('DOMContentLoaded',() => {
 const crudder = dominio => recurso => {
     const url = `${dominio}/${recurso}`
     return ({
@@ -17,51 +14,36 @@ const crudder = dominio => recurso => {
 }
 
 
-let Base = crudder('https://jsonplaceholder.typicode.com')
-let Todos = Base('photos')
+let Base = crudder('https://jsonplaceholder.typicode.com');
+let Todos = Base('photos');  
 
-let con = Todos.get().then(x => console.log(x)).catch(e => e.err);
+let bases= fetch('https://jsonplaceholder.typicode.com/photos').then(x => x.json()).then(x =>{
+    let element;    
+        for ( element of x){
+            if (element.id < 4) {//esto podria marcar un limite de muestras o modificarlo desde un evento
+                element = {
+                    'title': element.title,
+                    'url': element.url
+                }
+            let box = document.querySelector(".box");
+            let card = document.createElement("div");
+            card.setAttribute('class',element.title);
+            console.log(x.title);// nt found 
+            let spantitle = document.createElement("span");
+            spantitle.setAttribute('class','span-title');
+            spantitle.innerHTML=element.title;
+            card.appendChild(spantitle);
+            let photo = document.createElement("img");
+            photo.setAttribute('class','fotito');
+            photo.setAttribute('loading','lazy');
+            card.appendChild(photo);
+            box.appendChild(card);
+            photo.setAttribute("src",element.url);
+            }
+// })
+        console.log(element);
+    };
+    return element;
+}) 
 
-document.addEventListener('DOMContentLoaded',(e) =>{
-     //con.fotos.then(x => console.log(x)).catch(e => e.err);
-     console.log("entro")
-     console.log("entro")
-    let box = document.querySelector(".box");
-    let card = document.createElement("div");
-    card.setAttribute('class','elemento.title');
-    box.appendChild(card);
-    });
-
-
-    
-    //////////////////////////////////////////////////////////////////////////////
-   
-        
-    run();
-    console.log("entro");   
-
-function run(){
-    console.log("entro")
-    let box = document.querySelector(".box");
-    let card = document.createElement("div");
-    card.setAttribute('class','elemento.title');
-    box.appendChild(card);
-}
-function addElemento(elemento){
-    console.log("entro")
-    let box = document.querySelector(".box");
-    let card = document.createElement("div");
-    card.setAttribute('class','elemento.title');
-    box.appendChild(card);
-
-    let spantitle = document.createElement("span");
-        spantitle.setAttribute('class','span-title');
-        spantitle.innerHTML=elemento.title;
-        card.appendChild(spantitle);
-        let photo = document.createElement("img");
-        photo.setAttribute('class','fotito');
-        photo.setAttribute('src',elemento.url);
-        card.appendChild(photo);
-
-        addElemento(list[0]);
-}
+});
