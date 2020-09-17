@@ -1,8 +1,8 @@
 
 //modelo de conexion unica con lib isomorphic-fetch;
 //import 'isomorphic-fetch';
-
-require('isomorphic-fetch');
+import './node_modules/isomorphic-fetch';
+//require('../node_modules/isomorphic-fetch');
 
 
 const crudder = dominio => recurso => {
@@ -20,7 +20,9 @@ const crudder = dominio => recurso => {
 let Base = crudder('https://jsonplaceholder.typicode.com')
 let Todos = Base('photos')
 
+
 Todos.get().then(x => console.log(x)).catch(e => e.err);
+
 function crea(res) {
     res.forEach(element => {
         lento = {
@@ -29,6 +31,5 @@ function crea(res) {
         }
     });
 }
-
 let list = Todos.get().then(x => crea(x));
 console.log(list[0]);
