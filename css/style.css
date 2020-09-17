@@ -10,7 +10,10 @@ header {
 }
 
 .box-search {
+    display: flex;
     margin: auto;
+    height: 200px;
+    
 }
 
 div #form_search {
@@ -37,7 +40,7 @@ input {
     font-size: 1.8em;
 }
 
-.button-search {
+.btn.search {
     text-align: center;
     position: absolute;
     margin-top: 30%;
