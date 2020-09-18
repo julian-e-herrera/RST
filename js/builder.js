@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         return element;
     })
-
+    
 
     let createCard = (el) => {
         let box = document.querySelector(".box");
@@ -67,5 +67,5 @@ document.addEventListener('DOMContentLoaded', () => {
         box.appendChild(form);
     }
 
-    createForm();
+    
 });
