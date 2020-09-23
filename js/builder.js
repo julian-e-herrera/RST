@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const crudder = dominio => recurso => {
         const url = `${dominio}/${recurso}`
         return ({
@@ -15,19 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let Base = crudder('https://jsonplaceholder.typicode.com');
     let Todos = Base('photos');
 
-    let photos = Todos.get().then(x => {
-        let element;
-        for (element of x) {
-            if (element.id < 4) { //esto podria marcar un limite de muestras o modificarlo desde un evento
-                element = {
-                    'title': element.title,
-                    'url': element.url
-                }
+     Todos.get().then(x => {
               //  createCard(element);
+              //const getElementPhoto = photo => `${photo.title} ${photo.url}`;
+              x.filter(res => res. id < 5)
+              .map(getElementPhoto => createCard(getElementPhoto));
             }
-        };
-        return element;
-    })
+    );
+     
     
 
     let createCard = (el) => {
@@ -69,3 +65,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 });
+// /// Traditional declaration
+// const getApiURL = (apiHostname, resourceName = 'users', resourceId = 1) => {
+//     return `https://${apiHostname}/api/${resourceName}/${resourceId}`
+//   }
+  
+//   getApiURL('localhost:3000', 'orders', 2)
+//   getApiURL('localhost:3000', 'orders')
+//   getApiURL('localhost:3000')
+  
+//   // Curried declaration
+//   const getApiURLCurried = apiHostname => (resourceName = 'users') => (resourceId = 1) => {
+//     return `https://${apiHostname}/api/${resourceName}/${resourceId}`
+//   }
+  
+//   getApiURLCurried('localhost:3000')('orders')(2)
+  
+//   getApiURLCurried('localhost:3000')('orders') // This doesn't work as intended, we need to:
+//   getApiURLCurried('localhost:3000')('orders')()
+  
+//   getApiURLCurried('localhost:3000') // This doesn't work as intended, we need to:
+//   getApiURLCurried('localhost:3000')()()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,11 +8,19 @@ header {
     font-family: Avenir;
     font-weight: normal;
 }
+.content{
+    flex-wrap: wrap;
+    margin-left: 10%;
+    min-width: 230px;
+    min-height: 230px;
+}
 
 .box-search {
     display: flex;
+    order: 1;
     margin: auto;
-    height: 200px;
+    height: 100px;
+    
     
 }
 
@@ -20,11 +28,11 @@ div #form_search {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
     margin: auto;
+    /*position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%)*/
 }
 
 label.label_search {
@@ -34,23 +42,30 @@ label.label_search {
 
 select,
 input {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /*height: 150%;*/
     background: transparent;
     border: none;
     text-decoration: underline;
-    font-size: 1.8em;
+    /*font-size: 1.8em;*/
+    margin-left: auto;
+    text-decoration-thickness: initial;
 }
 
 .btn-search {
     text-align: center;
-    position: absolute;
-    margin-top: 30%;
+    /* position: absolute; */
+    
     border-radius: 50%;
     background-color: tomato;
     opacity: .5;
     color: white;
     border-color: transparent;
-    width: 12em;
-    height: 2.5em;
+    width: 10em;
+    height: 2.3em;
+    
 }
 
 .btn-search:hover {
@@ -59,6 +74,7 @@ input {
 
 .foot {
     display: flex;
+    order: 5;
     justify-content: center;
     align-items: flex-end;
     opacity: .5;
@@ -75,8 +91,10 @@ input {
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: stretch;
-
-
+    position: relative;
+    margin: auto;
+    margin-top: 5%;
+   
 }
 
 .card {
@@ -109,11 +127,18 @@ input {
     align-items: center;
     position: absolute;
     color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 @media(max-width:490px) {
     #form_search {
         width: 50%;
+    }
+    .btn-search{
+        width: 10em;
+        height: 1.5em; 
+        margin-top: 5%;
+        position: absolute;
     }
 
     select,
@@ -126,6 +151,7 @@ input {
 
     header {
         height: 300px;
+        width: 114%;
     }
 
     .fotito {
@@ -142,6 +168,10 @@ input {
 
     .description {
         width: 100%;
+    }
+    .foot {
+        position: relative;
+        width: 114%;
     }
 
 }
