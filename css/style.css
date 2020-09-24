@@ -8,11 +8,13 @@ header {
     font-family: Avenir;
     font-weight: normal;
 }
-.content{
+
+.content {
     flex-wrap: wrap;
-    margin-left: 10%;
+    margin: 1%;
     min-width: 230px;
     min-height: 230px;
+    /* background-color: lawngreen; */
 }
 
 .box-search {
@@ -20,8 +22,8 @@ header {
     order: 1;
     margin: auto;
     height: 100px;
-    
-    
+
+
 }
 
 div #form_search {
@@ -57,7 +59,7 @@ input {
 .btn-search {
     text-align: center;
     /* position: absolute; */
-    
+
     border-radius: 50%;
     background-color: tomato;
     opacity: .5;
@@ -65,7 +67,7 @@ input {
     border-color: transparent;
     width: 10em;
     height: 2.3em;
-    
+
 }
 
 .btn-search:hover {
@@ -94,15 +96,21 @@ input {
     position: relative;
     margin: auto;
     margin-top: 5%;
-   
+
 }
 
 .card {
-    display: flex;
-    width: 20%;
-    height: 20%x;
-    margin: 20px;
+    /* display: flex; */
+
     /*border: deeppink solid 5px;*/
+    display: flex;
+    width: 100%;
+    height: 20%x;
+    margin: 0.5%;
+}
+
+.card:hover {
+    transform: scale(1.5)
 }
 
 .fotito {
@@ -113,11 +121,15 @@ input {
 
 }
 
-.description {
 
-    width: 10%;
-    padding-inline-start: 10%;
+ul[class^='description'] {
+
+    width: 100%;
+    /* padding-inline-start: 10%; */
     list-style: none;
+    shape-image-threshold: 0.5;
+    shape-margin: 20px;
+    float: left;
 }
 
 
@@ -128,15 +140,18 @@ input {
     position: absolute;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
-@media(max-width:490px) {
+@media(max-width:430px) {
     #form_search {
         width: 50%;
     }
-    .btn-search{
+
+    .btn-search {
         width: 10em;
-        height: 1.5em; 
+        height: 1.5em;
         margin-top: 5%;
         position: absolute;
     }
@@ -163,12 +178,23 @@ input {
         justify-content: center;
         width: 90%;
         margin: 0%;
-       /* border: violet solid 5px;*/
+        /* border: violet solid 5px;*/
+    }
+
+    .card {
+
+
+        /* border: deeppink solid 5px; */
+        /*  width: 20%;*/
+        flex-wrap: wrap;
+        height: 20%x;
+        margin: 10px;
     }
 
     .description {
         width: 100%;
     }
+
     .foot {
         position: relative;
         width: 114%;

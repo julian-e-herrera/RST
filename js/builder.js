@@ -14,37 +14,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     let Base = crudder('https://jsonplaceholder.typicode.com');
-    let Todos = Base('photos');
+    let Photo = Base('photos');
+    let Comment = Base ('comments')
 
-     Todos.get().then(x => {
+    Photo.get().then(x => {
               //  createCard(element);
               //const getElementPhoto = photo => `${photo.title} ${photo.url}`;
               x.filter(res => res. id < 5)
               .map(getElementPhoto => createCard(getElementPhoto));
             }
     );
-     
+     Comment.get().then(x =>   x.filter(res => res.id < 5)
+     .map(getElement => createComment(getElement)));
     
 
     let createCard = (el) => {
         let box = document.querySelector(".box");
         let card = document.createElement("div");
-        card.setAttribute('class', el.title);
+        card.setAttribute('class','card '+ el.title);
         let spantitle = document.createElement("span");
         spantitle.setAttribute('class', 'span-title');
         spantitle.innerHTML = el.title;
-        card.appendChild(spantitle);
+        
         let photo = document.createElement("img");
         photo.setAttribute('class', 'fotito');
-        photo.setAttribute('loading', 'lazy');
-        card.appendChild(photo);
+       // photo.setAttribute('loading', 'lazy');
+        let anchor = document.createElement("a");
+        anchor.setAttribute("href", el.url);
+        anchor.appendChild(photo);
+        anchor.appendChild(spantitle);
+        card.appendChild(anchor);
         box.appendChild(card);
         photo.setAttribute("src", el.url);
+
+        let list = document.createElement("ul");
+        list.setAttribute('class', 'description'+el.id);
+        card.appendChild(list);
+
+      
     }
 
+    let createComment = (el) => {
+        let list = document.querySelector(".description"+el.id);
+        let name = document.createElement("li");
+        let mail = document.createElement("li");
+        let body = document.createElement("li");
+        name.innerHTML = el.name;
+        mail.innerHTML = el.mail;
+        body.innerHTML = el.body;
+        list.appendChild(name);
+        list.appendChild(mail);
+        list.appendChild(body)
+    }
+
+
+
     
-    let createForm = () => {
-        let box = document.querySelector(".box");
+    let adminPass = document.querySelector('.foot');
+    adminPass.addEventListener('click',() =>{
+    /*let createForm = () => {*/
+        let box = document.querySelector(".content");
         let form = document.createElement("form");
         form.setAttribute('class', 'formulario');
         let input_user = document.createElement("input");
@@ -62,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form.appendChild(button);
         box.appendChild(form);
     }
-
+)
     
 });
 // /// Traditional declaration
